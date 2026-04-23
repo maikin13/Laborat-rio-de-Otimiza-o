@@ -1,0 +1,33 @@
+### 1. Sucesso: Calcular a Média
+POST http://localhost:8000/estatisticas/media
+Content-Type: application/json
+
+{
+    "valores": [10.0, 8.5, 9.0]
+}
+
+### 2. Sucesso: Distância Euclidiana
+POST http://localhost:8000/vetores/distancia
+Content-Type: application/json
+
+{
+    "vetor_a": [1.0, 2.0, 3.0],
+    "vetor_b": [4.0, 5.0, 6.0]
+}
+
+### 3. Erro 422: Schema Inválido (Tamanhos diferentes nos vetores)
+POST http://localhost:8000/vetores/distancia
+Content-Type: application/json
+
+{
+    "vetor_a": [1.0, 2.0, 3.0],
+    "vetor_b": [4.0, 6.0]
+}
+
+### 4. Erro 400: Regra de Negócio (Desvio Padrão com valores todos iguais)
+POST http://localhost:8000/estatisticas/desvio-padrao
+Content-Type: application/json
+
+{
+    "valores": [5.0, 5.0, 5.0]
+}
